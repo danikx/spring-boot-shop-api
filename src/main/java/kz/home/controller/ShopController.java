@@ -24,10 +24,14 @@ import java.util.List;
 public class ShopController {
     private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
-    @Autowired
-    private ShopService shopService;
+    private final ShopService shopService;
 
-    @RequestMapping(method = RequestMethod.GET/*, consumes = MediaType.APPLICATION_JSON_VALUE*/, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Autowired
+    public ShopController(ShopService shopService) {
+        this.shopService = shopService;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     List<Shop> getShops() {
         return shopService.getAllShops();
@@ -50,11 +54,11 @@ public class ShopController {
     }
 
 
+    @SuppressWarnings("unused")
     @ExceptionHandler
     void handleIllegalArgumentException(IllegalArgumentException e, HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
-
 
     /*@ExceptionHandler({IllegalArgumentException.class, NullPointerException.class})
     void handleBadRequests(HttpServletResponse response) throws IOException {
