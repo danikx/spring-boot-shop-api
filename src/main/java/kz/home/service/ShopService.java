@@ -14,4 +14,6 @@ public interface ShopService {
     List<Shop> getAllShops();
 
     Shop createShop(String name, String address, String phone);
+
+    void saveShop(Shop shop);
 }

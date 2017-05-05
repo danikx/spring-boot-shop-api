@@ -32,4 +32,15 @@ public class ShopServiceImpl implements ShopService {
         logger.info("creating shop {}, address: {}, phone: {}", name, address, phone);
         return Shop.create(name, address, phone);
     }
+
+    @Override
+    public void saveShop(Shop shop) {
+        logger.info("shop:" + shop.getName());
+
+        if (shop.getName() == null) {
+            throw new IllegalArgumentException("shop name can't be null");
+        }
+
+        logger.info("saving shop: {}, address: {}, phone: {}", shop.getName(), shop.getAddress(), shop.getPhone());
+    }
 }

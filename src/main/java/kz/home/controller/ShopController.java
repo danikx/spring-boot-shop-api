@@ -46,11 +46,7 @@ public class ShopController {
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.CREATED)
     public void saveShop(@RequestBody Shop shop) {
-        logger.info("shop:" + shop.getName());
-        if (shop.getName() == null) {
-            throw new IllegalArgumentException("shop name can't be null");
-        }
-        logger.info("saving shop: {}, address: {}, phone: {}", shop.getName(), shop.getAddress(), shop.getPhone());
+        shopService.saveShop(shop);
     }
 
 
