@@ -1,4 +1,4 @@
-package kz.home.service;
+package kz.home.controller;
 
 import kz.home.domain.Greeting;
 import org.springframework.stereotype.Controller;

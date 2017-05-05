@@ -1,4 +1,4 @@
-package kz.home.service;
+package kz.home.controller;
 
 import kz.home.domain.Shop;
 import org.slf4j.Logger;
