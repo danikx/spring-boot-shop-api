@@ -27,4 +27,6 @@ public class HelloWorldController {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
+
+
 }
