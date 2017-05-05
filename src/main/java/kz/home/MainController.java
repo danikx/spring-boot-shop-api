@@ -1,13 +1,18 @@
 package kz.home;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 public class MainController {
-    
-    @RequestMapping("/")	
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+
+    @RequestMapping("/")
     public String index() {
-	return "Greetings from spring boot";
+        logger.debug("debug : index {}", "testing");
+        logger.info("info : index {}", "testing");
+        return "Greetings from spring boot";
     }
 }
