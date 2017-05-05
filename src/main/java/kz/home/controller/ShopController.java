@@ -36,7 +36,7 @@ public class ShopController {
     @RequestMapping(method = RequestMethod.GET, value = "/{name}")
     public @ResponseBody
     Shop getShopByNamePath(@PathVariable("name") String name, @RequestParam(value = "address", required = false) String address, @RequestParam(value = "phone", required = false) String phone) {
-        return Shop.create(name, address, phone);
+        return shopService.createShop(name, address, phone);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -26,4 +26,10 @@ public class ShopServiceImpl implements ShopService {
         logger.info("get all shops");
         return result;
     }
+
+    @Override
+    public Shop createShop(String name, String address, String phone) {
+        logger.info("creating shop {}, address: {}, phone: {}", name, address, phone);
+        return Shop.create(name, address, phone);
+    }
 }

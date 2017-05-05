@@ -12,4 +12,6 @@ import java.util.List;
 public interface ShopService {
 
     List<Shop> getAllShops();
+
+    Shop createShop(String name, String address, String phone);
 }
