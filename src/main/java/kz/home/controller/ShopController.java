@@ -1,8 +1,10 @@
 package kz.home.controller;
 
 import kz.home.domain.Shop;
+import kz.home.service.ShopService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -22,15 +24,13 @@ import java.util.List;
 public class ShopController {
     private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
+    @Autowired
+    private ShopService shopService;
 
     @RequestMapping(method = RequestMethod.GET/*, consumes = MediaType.APPLICATION_JSON_VALUE*/, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     List<Shop> getShops() {
-        List<Shop> result = new ArrayList<>();
-
-        result.add(Shop.create("test", "address", "phone"));
-        result.add(Shop.create("test2", "address2", "phone2"));
-        return result;
+        return shopService.getAllShops();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{name}")
